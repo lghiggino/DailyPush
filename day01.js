@@ -2011,5 +2011,18 @@ const calcIncreasingMeasures = (array) => {
     console.log(total) 
 }
 
-
 calcIncreasingMeasures(measures)
+
+
+//=================
+const calcIncreasingMeasuresWindows = (array) => {
+    let total = 0
+    for (i = 1; i< array.length; i++){
+        if( (array[i-1] + array[i] + array[i+1]) < (array[i] + array[i+1]+ array[i+2]) ){
+            total++
+        }
+    }
+    console.log(total)
+}
+
+calcIncreasingMeasuresWindows(measures)
