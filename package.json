@@ -4,7 +4,7 @@
   "description": "",
   "main": "day01.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/lghiggino/AdventOfCode2021/issues"
   },
-  "homepage": "https://github.com/lghiggino/AdventOfCode2021#readme"
+  "homepage": "https://github.com/lghiggino/AdventOfCode2021#readme",
+  "devDependencies": {
+    "jest": "^27.4.3"
+  }
 }

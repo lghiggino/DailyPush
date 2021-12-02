@@ -2003,12 +2003,12 @@ const measures = [
 
 const calcIncreasingMeasures = (array) => {
     let total = 0
-    for (i = 0; i < array.length; i++){
-        if (array[i] < array[i+1]){
+    for (i = 0; i < array.length; i++) {
+        if (array[i] < array[i + 1]) {
             total++
         }
     }
-    console.log(total) 
+    return(total)
 }
 
 calcIncreasingMeasures(measures)
@@ -2017,12 +2017,14 @@ calcIncreasingMeasures(measures)
 //=================
 const calcIncreasingMeasuresWindows = (array) => {
     let total = 0
-    for (i = 1; i< array.length; i++){
-        if( (array[i-1] + array[i] + array[i+1]) < (array[i] + array[i+1]+ array[i+2]) ){
+    for (i = 1; i < array.length; i++) {
+        if ((array[i - 1] + array[i] + array[i + 1]) < (array[i] + array[i + 1] + array[i + 2])) {
             total++
         }
     }
-    console.log(total)
+    return(total)
 }
 
 calcIncreasingMeasuresWindows(measures)
+
+module.exports = { calcIncreasingMeasures, calcIncreasingMeasuresWindows }
