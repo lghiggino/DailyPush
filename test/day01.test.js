@@ -19,10 +19,34 @@ const measures = [
     262
 ]
 
-test('calcIncreasingMeasures ', () => {
-    expect(calcIncreasingMeasures(measures)).toBe(13);
-});
+const decreasingMeasures = [
+    100,
+    90,
+    80,
+    70,
+    60,
+    50,
+    40,
+    30,
+    20,
+    10,
+    0
+]
 
-test('calcIncreasingMeasuresWindows ', () => {
-    expect(calcIncreasingMeasuresWindows(measures)).toBe(3);
-});
+describe("Testing individual measures", () => {
+    it('calcIncreasingMeasures with regular values', () => {
+        expect(calcIncreasingMeasures(measures)).toBe(13);
+    });
+    it('calcIncreasingMeasures with decreasing values', () => {
+        expect(calcIncreasingMeasures(decreasingMeasures)).toBe(0);
+    });
+})
+
+describe("Testing Measure Windows", () => {
+    it('calcIncreasingMeasures with regular values ', () => {
+        expect(calcIncreasingMeasuresWindows(measures)).toBe(12);
+    });
+    it('calcIncreasingMeasures with decreasing values ', () => {
+        expect(calcIncreasingMeasuresWindows(measures)).toBe(0);
+    });
+})
