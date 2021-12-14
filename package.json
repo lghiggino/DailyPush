@@ -4,7 +4,7 @@
   "description": "",
   "main": "day01.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --watchAll"
   },
   "jest": {
     "transform": {

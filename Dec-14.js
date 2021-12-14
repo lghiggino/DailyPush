@@ -14,7 +14,7 @@ const decryptPassword = (s) => {
         //3. if s[i] is a number replace it with 0, place the original number at start and move to i+1
         if(typeof s[i] === 'number'){
             decryptArray.push(0)
-            decryptArray.unshifht(s[i])
+            decryptArray.unshifht(s[i]) 
         }
         else {
             decryptArray.push(s[i])
