@@ -16,16 +16,6 @@ function groupByCompany(allProducts) {
       companies.push(item)
     }
   })
-  console.log(companies)
-  //filtrando os objetos
-  const firstFilter = allProducts.filter(item => item.product_name === companies[0])
-  console.log(firstFilter)
-
-  const secondFilter = allProducts.filter(item => item.product_name === companies[1])
-  console.log(secondFilter)
-
-  const thirdFilter = allProducts.filter(item => item.product_name === companies[2])
-  console.log(thirdFilter)
 
   let response = []
   //criando os arrays filtrados
