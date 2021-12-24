@@ -18,7 +18,7 @@ describe("testing the Square class", () => {
         expect(square.area()).toBe(4)
     })
     it("should throw for invalid input", () => {
-        expect(invalidSquare.area()).toThrow("Invalid dimentions length for Square");
+        expect(() => {invalidSquare.area()}).toThrow("Invalid dimentions length for Square");
     })
 })
 
