@@ -22,6 +22,9 @@ class Square extends Polygon{
         if (this.dimentions.length !== 2){
             throw new Error("Invalid dimentions length for Square")
         }
+        if (this.width !== this.height){
+            throw new Error(`Width: ${this.width}, Heigth: ${this.height}. Sides must match in size`)
+        }
     }
 
     perimeter() {

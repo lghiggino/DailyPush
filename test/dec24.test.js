@@ -8,8 +8,10 @@ describe("testing the Polygon class", () => {
     it("should return the perimeter of the triangle", () => {
         expect(triangle.perimeter()).toBe(12)
     })
-    it("should return the perimeter of the square", () => {
-        expect(square.perimeter()).toBe(8)
+    it("should expect perimeter from different classes to match", () => {
+        const squarePerimeter = square.perimeter()
+        const fourSidePolygonPerimeter = new Polygon([2,2,2,2]).perimeter()
+        expect(squarePerimeter).toEqual(fourSidePolygonPerimeter)
     })
 })
 
@@ -17,21 +19,15 @@ describe("testing the Square class", () => {
     it("should return the area of the square", () => {
         expect(square.area()).toBe(4)
     })
+    it("should return the perimeter of the square", () => {
+        expect(square.perimeter()).toBe(8)
+    })
     it("should throw for invalid input", () => {
         expect(() => {invalidSquare.area()}).toThrow("Invalid dimentions length for Square");
+    })
+    it("should throw for unmatched sides", () => {
+        expect(() => {invalidSquare.area()}).toThrow();
     })
 })
 
 
-function compileAndroidCode() {
-    throw new Error('você está usando o JDK errado');
-}
-
-test('compilando para android segue conforme esperado', () => {
-    expect(() => compileAndroidCode()).toThrow();
-    expect(() => compileAndroidCode()).toThrow(Error);
-
-    // Você também pode usar a mensagem exata de erro ou uma regexp
-    expect(() => compileAndroidCode()).toThrow('você está usando o JDK errado');
-    expect(() => compileAndroidCode()).toThrow(/JDK/);
-});
