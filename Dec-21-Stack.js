@@ -55,6 +55,10 @@ class Stack{
     peek(){
         return this.storage[this.size]
     }
+
+    length(){
+        return this.size
+    }
 }
 
 module.exports = { checkPalindrome, Stack }
