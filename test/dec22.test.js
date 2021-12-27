@@ -1,4 +1,4 @@
-import { Queue } from "../Dec-22-Queue";
+import { Queue } from "../src/Dec-22-Queue";
 
 describe("checks if the Queue methods produce the expected results", () => {
     const animalQueue = new Queue()

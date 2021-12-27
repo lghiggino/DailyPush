@@ -1,4 +1,4 @@
-import { getSecondLargest } from '../Dec-16'
+import { getSecondLargest } from '../src/Dec-16'
 
 describe('get the second largest item in an array', () => {
     it("should get the second largest", () => {

@@ -1,4 +1,4 @@
-const { calcIncreasingMeasures, calcIncreasingMeasuresWindows } = require("../day01")
+const { calcIncreasingMeasures, calcIncreasingMeasuresWindows } = require("../src/day01")
 
 const measures = [
     170,

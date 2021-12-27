@@ -1,4 +1,4 @@
-import { decryptPassword } from '../Dec-14'
+import { decryptPassword } from '../src/Dec-14'
 
 describe('hackerrank decrypt password', () => {
     it("should decrypt the freaakin password", () => {

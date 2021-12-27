@@ -1,4 +1,4 @@
-import { isPositive } from '../Dec-15'
+import { isPositive } from '../src/Dec-15'
 
 describe('hackerrank isPositive', () => {
     it("Checks if a number is positive and returns YES", () => {

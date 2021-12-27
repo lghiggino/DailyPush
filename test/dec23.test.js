@@ -1,4 +1,4 @@
-import { getCount } from '../Dec-23'
+import { getCount } from '../src/Dec-23'
 
 
 const testArray0 = [

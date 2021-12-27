@@ -1,4 +1,4 @@
-import { groupByKey, groupByCompany } from "../Dec-18";
+import { groupByKey, groupByCompany } from "../src/Dec-18";
 
 const apiResponse = [
     {

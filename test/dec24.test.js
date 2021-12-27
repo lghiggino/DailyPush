@@ -1,4 +1,4 @@
-import { Polygon, Square } from "../Dec-24";
+import { Polygon, Square } from "../src/Dec-24";
 
 let triangle = new Polygon([3, 4, 5])
 let square = new Square([2, 2])

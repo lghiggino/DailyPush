@@ -1,4 +1,4 @@
-import { checkPalindrome, Stack } from '../Dec-21-Stack'
+import { checkPalindrome, Stack } from '../src/Dec-21-Stack'
 
 describe("checks if a word is a perfect palindrome", () => {
     it("checks racecar expecting the result to be true", () => {
