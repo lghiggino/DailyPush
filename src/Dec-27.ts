@@ -1,4 +1,4 @@
-function compareTriplets(a, b) {
+export default function compareTriplets(a, b) {
     // Write your code here
     let sumA = 0
     let sumB = 0
@@ -18,4 +18,3 @@ function compareTriplets(a, b) {
     return [sumA, sumB]
 }
 
-module.exports = { compareTriplets }

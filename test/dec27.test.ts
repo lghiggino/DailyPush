@@ -1,4 +1,4 @@
-import { compareTriplets } from "../src/Dec-27";
+import compareTriplets from "../src/Dec-27";
 
 describe("compareTriplets", () => {
     it("For [5, 6, 7], [3, 6, 10] should return [1, 1]", () => {
