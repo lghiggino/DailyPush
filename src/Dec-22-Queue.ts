@@ -11,6 +11,10 @@ commom methods are:
 
 
 class Queue {
+	public storage: any;
+	public head: any;
+	public tail: any;
+
     constructor() {
         this.storage = {}
         this.head = 0

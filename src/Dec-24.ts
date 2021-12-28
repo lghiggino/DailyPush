@@ -1,4 +1,6 @@
 class Polygon {
+	public dimentions: any;
+
     constructor(dimentions) {
         this.dimentions = [...dimentions];
     }
@@ -11,6 +13,9 @@ class Polygon {
 }
 
 class Square extends Polygon{
+	public width: any;
+	public height: any;
+
     constructor(dimentions) {
         super(dimentions)
         this.dimentions = [...dimentions]

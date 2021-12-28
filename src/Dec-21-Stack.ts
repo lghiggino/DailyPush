@@ -34,6 +34,9 @@ function checkPalindrome(word) {
 }
 
 class Stack{
+	public storage: any;
+	public size: any;
+
     constructor(){
         this.storage = {}
         this.size = 0

@@ -20,6 +20,9 @@ function isPositive(a) {
 module.exports = {isPositive}
 
 class Rectangle {
+	public w: any;
+	public h: any;
+
     constructor(w, h) {
         this.w = w;
         this.h = h;
