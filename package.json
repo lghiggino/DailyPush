@@ -26,5 +26,8 @@
     "@babel/preset-env": "^7.16.5",
     "babel-jest": "^27.4.5",
     "jest": "^27.4.3"
+  },
+  "dependencies": {
+    "js-to-ts-converter": "^0.18.1"
   }
 }
