@@ -63,6 +63,30 @@ export function miniMaxSum(arr) {
     let maxSum = sorted[4] + sorted[3] + sorted[2] + sorted[1]
 
     minMaxArray.push(minSum, maxSum)
-    console.log(minMaxArray)
+
     return minMaxArray
+}
+
+export function minMaxSumOfN(arr, n) {
+    if (n > arr.length) { return [0, 0] }
+
+    let sorted = arr.sort((a, b) => {
+        if (a < b) {
+            return -1
+        }
+        if (a > b) {
+            return 1
+        }
+        else { return 0 }
+    })
+    let minSum = 0
+    let maxSum = 0
+
+    for (let i = 0; i < n; i++) {
+        minSum += sorted[i];
+        maxSum += sorted[sorted.length - i -1]
+    }
+    
+    return [minSum, maxSum]
+
 }
