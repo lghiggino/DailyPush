@@ -1,4 +1,4 @@
-import { miniMaxSum, minMaxSumOfN } from "../../../src/2022/January/jan02";
+import { miniMaxSum, minMaxSumOfN } from "../../../src/2022/January/jan02-miniMaxSum";
 
 describe("miniMaxSum", () => {
     it("should return [10, 14] for [1, 2, 3, 4, 5]", () => {

@@ -1,4 +1,4 @@
-import {birthdayCakeCandles} from "../../../src/2022/January/jan03"
+import {birthdayCakeCandles} from "../../../src/2022/January/jan03-birthdayCakeCandles"
 
 describe("birthdayCakeCandles", () => {
     it("should return 2 for [1, 2, 3, 4, 5]", () => {

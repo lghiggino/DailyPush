@@ -1,4 +1,4 @@
-import { countApplesAndOranges } from "../../../src/2022/January/jan05";
+import { countApplesAndOranges } from "../../../src/2022/January/jan05-countApplesAndOranges";
 
 describe("countApplesAndOranges", () => {
     it("should return [1,2] for [2,3,-4] and [3, -2, -4]", () => {

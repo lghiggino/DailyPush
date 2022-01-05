@@ -1,4 +1,4 @@
-import {timeConversion} from "../../../src/2022/January/jan04"
+import {timeConversion} from "../../../src/2022/January/jan04-timeConversion"
 
 describe("timeConversion", () => {
     it("should return '12:01:00' for '12:01:00PM'", () => {

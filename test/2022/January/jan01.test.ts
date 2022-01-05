@@ -1,4 +1,4 @@
-import { staircase } from "../../../src/2022/January/jan01";
+import { staircase } from "../../../src/2022/January/jan01-staircase";
 
 describe("staircase", () => {
     it("should return '\n #\n##' for 2", () => {

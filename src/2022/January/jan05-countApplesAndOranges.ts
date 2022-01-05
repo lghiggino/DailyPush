@@ -66,8 +66,8 @@ Only the second orange falls within the region between  7 and 11, so we print 2 
 
 
 export function countApplesAndOranges(s: number, t: number, a: number, b: number, apples: number[], oranges: number[]): number[] {
-    const applesPositions = apples.map(item => { return item + a })
-    const orangesPositions = oranges.map(item => { return item + b })
+    const applesPositions = apples.map(item => { return item + a }).filter(item => houseFilter(item))
+    const orangesPositions = oranges.map(item => { return item + b }).filter(item => houseFilter(item))
 
     function houseFilter(item: number) {
         if (item >= s && item <= t) {
@@ -75,8 +75,5 @@ export function countApplesAndOranges(s: number, t: number, a: number, b: number
         }
     }
 
-    const applesHitHouse = applesPositions.filter(item => houseFilter(item))
-    const orangesHitHouse = orangesPositions.filter(item => houseFilter(item))
-
-    return [applesHitHouse.length, orangesHitHouse.length]
+    return [applesPositions.length, orangesPositions.length]
 }
