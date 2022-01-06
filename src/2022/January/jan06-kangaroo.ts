@@ -29,7 +29,9 @@ Input Format
 A single line of four space-separated integers denoting the respective values of , , , and .
 
 Constraints
-
+- 0 <= x1 < x2 <= 10000
+- 1<= v1 <= 10000
+- 2<= v2 <= 10000
 Sample Input 0
 
 0 3 4 2
@@ -61,6 +63,9 @@ export function kangaroo(x1: number, v1: number, x2: number, v2: number): string
         return "NO"
     }
     if (x2 >= x1 && v2 > v1) {
+        return "NO"
+    }
+    if (v1 === v2 && x1 < x2){
         return "NO"
     }
 
