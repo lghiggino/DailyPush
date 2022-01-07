@@ -62,7 +62,24 @@ She broke her best record four times (after games , , , and ) and her worst reco
 */
 
 export function breakingRecords(scores: number[]): number[] {
-    // Write your code here
+    let maxCount = 0
+    let minCount = 0
 
-    return []
+    let maxValue = scores[0]
+    let minValue = scores[0]
+
+    for (let i = 1; i < scores.length; i++) {
+        if (scores[i] > maxValue) {
+            maxCount++
+            maxValue = scores[i]
+        }
+        if (scores[i] < minValue) {
+            minCount++
+            minValue = scores[i]
+        }
+        console.log("iterator:", i, "Max:", maxCount, "Min:", minCount, "scores[i]:", scores[i])
+
+    }
+
+    return [maxCount, minCount]
 }
