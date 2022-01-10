@@ -1,4 +1,4 @@
-import { getTotalX } from "../../../src/2022/January/jan08";
+import { getTotalX } from "../../../src/2022/January/jan08-between-two-sets";
 
 describe("getTotalX", () => {
     it("should return 3 for [2,4] and [16,32,96]", () => {
