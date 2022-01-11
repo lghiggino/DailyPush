@@ -42,5 +42,13 @@ Sample Output
 
 export function divisibleSumPairs(n: number, k: number, ar: number[]): number {
     // Write your code here
-
+    let count = 0
+    for(let i = 0; i< n; i++){
+        ar.slice(i+1, n).filter((item)=>{
+            if((item + ar[i])%k === 0){
+                count++
+            }
+        })
+    }
+    return count
 }
