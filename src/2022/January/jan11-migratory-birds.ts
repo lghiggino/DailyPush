@@ -64,16 +64,26 @@ Two types have a frequency of , and the lower of those is type .
 
 export function migratoryBirds(arr: number[]): number {
     // Write your code here
-    
-    arr = arr.sort()
-    let count = 0
-    let lowestNumber = arr[0]
+    let map = {}, maxCount = 0, output = [];
     for (let i = 0; i < arr.length; i++) {
-        let filtered = arr.filter(item => { return item === arr[i] })
-        if (filtered.length > count){
-            count = filtered.length
-            lowestNumber = arr[i]
+        if (!map[arr[i]]) {
+            map[arr[i]] = 1;
+        } else {
+            map[arr[i]] += 1;
         }
-    } 
-    return lowestNumber
+
+        // getting max count
+        if (map[arr[i]] > maxCount) {
+            maxCount = map[arr[i]];
+        }
+    }
+
+
+    for (let j = 0; j < arr.length; j++) {
+        if (map[arr[j]] === maxCount) {
+            output.push(arr[j]);
+        }
+    }
+
+    return Math.min(...output);
 }
