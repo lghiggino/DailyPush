@@ -1,4 +1,4 @@
-import { bonAppetit } from "../../../src/2022/January/jan12";
+import { bonAppetit } from "../../../src/2022/January/jan12-bonAppetit";
 
 describe("bonAppetit", () => {
     it("should return 5 for...", () => {
