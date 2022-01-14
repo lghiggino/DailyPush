@@ -49,17 +49,15 @@ export function sockMerchant(ar: number[]): number {
         return obj
     }, {})
 
-    
+    const amounts: number[] = []
 
-    const amounts = []
-
-    for (let key in reducedPairs){
+    for (let key in reducedPairs) {
         amounts.push(reducedPairs[key])
     }
 
-    console.log(amounts)
+    let totalPairs = amounts.map(item => { return Math.floor(item / 2) })
 
-    amounts.filter()
+    let reducedFloor = totalPairs.reduce((prev, curr) => {return prev + curr}, 0)
 
-    return 0
+    return reducedFloor
 }
