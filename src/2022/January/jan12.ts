@@ -42,7 +42,12 @@ Explanation 1
 Anna didn't eat item , but she shared the rest of the items with Brian. The total cost of the shared items is  and, split in half, the cost per person is . Because , we print Bon Appetit on a new line.
  */
 
-export function bonAppetit(bill: number[], k: number, b: number): void {
+export function bonAppetit(bill: number[], k: number, b: number): string | number {
     // Write your code here
-
+    const reducedBill = bill.reduce((prev, curr) => { return prev + curr }, -bill[k])
+    if ((reducedBill / 2) === b) {
+        return 'Bon Appetit'
+    } else {
+        return Math.abs((reducedBill / 2) - b)
+    }
 }
