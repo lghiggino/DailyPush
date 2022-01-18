@@ -46,7 +46,22 @@ _/\      _
 The hiker enters and leaves one valley.
 */
 
-function countingValleys(steps: number, path: string): number {
-    // Write your code here
-
+export function countingValleys(path: string): number {
+    let steps = path.split("");
+    let valleyCount = 0;
+    let currentSeaLevel = 0;
+    let valleyStatus = false;
+    steps.forEach(step => {
+        step === 'U' ? currentSeaLevel++ : currentSeaLevel--;
+        if (currentSeaLevel < 0 && !valleyStatus) {
+            valleyCount++;
+            valleyStatus = true
+        } else if (currentSeaLevel >= 0 && valleyStatus) {
+            valleyStatus = false
+        }
+    })
+    return valleyCount;
 }
+
+//http://medium.com/swlh/hackerranks-counting-valleys-challenge-c21e51d6ce9d
+
