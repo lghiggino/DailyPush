@@ -1,12 +1,14 @@
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Link, Navigate, Route, Routes } from 'react-router-dom'
 
 // pages
 import Home from './pages/Home'
 import About from './pages/About'
 import Products from './pages/Products'
 import ProductDetails from './pages/ProductDetails'
-
+import { useState } from "react"
 function App() {
+  const [cartHasProducts, setCartHasProducts] = useState(false)
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -17,16 +19,18 @@ function App() {
           <Link to="/products">Products</Link>
         </nav>
         <Routes>
-          <Route exact path="/" component={Home} />
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/products/:id">
-            <ProductDetails />
-          </Route>
-          <Route path="/products">
-            <Products />
-          </Route>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/products/:id" element={<ProductDetails />} />
+          <Route path="/products" element={<Products />} />
+          {/* REDIRECT ROUTES */}
+          <Route path="/redirect" element={<Navigate to="/about" />} />
+          <Route
+            path="/checkout"
+            element={
+              cartHasProducts ? <p>checkoutPage</p> : <Navigate to="/products" /> 
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>
