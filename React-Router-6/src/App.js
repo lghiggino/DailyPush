@@ -1,4 +1,4 @@
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
 
 // pages
 import Home from './pages/Home'
@@ -16,7 +16,7 @@ function App() {
           <Link to="/about">About</Link>
           <Link to="/products">Products</Link>
         </nav>
-        <Switch>
+        <Routes>
           <Route exact path="/" component={Home} />
           <Route path="/about">
             <About />
@@ -27,10 +27,13 @@ function App() {
           <Route path="/products">
             <Products />
           </Route>
-        </Switch>
+        </Routes>
       </BrowserRouter>
     </div>
   )
 }
 
 export default App
+
+//https://www.youtube.com/watch?v=WfpmvgVZD1A&list=PL4cUxeGkcC9h7F1LWaQ7MAI8ptg5VjvxJ
+//https://medium.com/@dmitrynozhenko/9-ways-to-implement-css-in-react-js-ccea4d543aa3
