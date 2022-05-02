@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1651450377208" clover="3.2.0">
-  <project timestamp="1651450377208" name="All files">
-    <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1" elements="9" coveredelements="9" complexity="0" loc="8" ncloc="8" packages="1" files="1" classes="1"/>
+<coverage generated="1651454012766" clover="3.2.0">
+  <project timestamp="1651454012766" name="All files">
+    <metrics statements="20" coveredstatements="20" conditionals="5" coveredconditionals="5" methods="3" coveredmethods="3" elements="28" coveredelements="28" complexity="0" loc="20" ncloc="20" packages="1" files="1" classes="1"/>
     <file name="App.tsx" path="/home/lghiggino/Development/03-ProjetosPessoais/DailyPush/react-unit-testing/src/App.tsx">
-      <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <metrics statements="20" coveredstatements="20" conditionals="5" coveredconditionals="5" methods="3" coveredmethods="3"/>
       <line num="1" count="1" type="stmt"/>
       <line num="2" count="1" type="stmt"/>
-      <line num="3" count="1" type="stmt"/>
-      <line num="4" count="1" type="stmt"/>
-      <line num="5" count="1" type="stmt"/>
-      <line num="6" count="1" type="stmt"/>
-      <line num="7" count="1" type="stmt"/>
+      <line num="3" count="3" type="cond" truecount="1" falsecount="0"/>
+      <line num="4" count="3" type="stmt"/>
+      <line num="5" count="3" type="stmt"/>
+      <line num="6" count="3" type="cond" truecount="1" falsecount="0"/>
+      <line num="7" count="1" type="cond" truecount="1" falsecount="0"/>
       <line num="8" count="1" type="stmt"/>
+      <line num="9" count="3" type="stmt"/>
+      <line num="10" count="3" type="stmt"/>
+      <line num="11" count="3" type="stmt"/>
+      <line num="12" count="3" type="cond" truecount="1" falsecount="0"/>
+      <line num="13" count="3" type="stmt"/>
+      <line num="14" count="3" type="cond" truecount="1" falsecount="0"/>
+      <line num="15" count="3" type="stmt"/>
+      <line num="16" count="3" type="stmt"/>
+      <line num="17" count="3" type="stmt"/>
+      <line num="18" count="3" type="stmt"/>
+      <line num="19" count="1" type="stmt"/>
+      <line num="20" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>
