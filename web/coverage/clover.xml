@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1651502726671" clover="3.2.0">
-  <project timestamp="1651502726671" name="All files">
+<coverage generated="1651502940330" clover="3.2.0">
+  <project timestamp="1651502940330" name="All files">
     <metrics statements="53" coveredstatements="53" conditionals="12" coveredconditionals="12" methods="6" coveredmethods="6" elements="71" coveredelements="71" complexity="0" loc="53" ncloc="53" packages="1" files="1" classes="1"/>
-    <file name="List.tsx" path="/home/lghiggino/Development/03-ProjetosPessoais/DailyPush/react-unit-testing/src/components/List.tsx">
+    <file name="List.tsx" path="/home/lghiggino/Development/03-ProjetosPessoais/DailyPush/web/src/components/List.tsx">
       <metrics statements="53" coveredstatements="53" conditionals="12" coveredconditionals="12" methods="6" coveredmethods="6"/>
       <line num="1" count="1" type="stmt"/>
       <line num="2" count="1" type="stmt"/>
