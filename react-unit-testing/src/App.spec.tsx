@@ -12,13 +12,20 @@ describe('APP', () => {
     })
 
     it('should be able to add new item to list', async () => {
-        const { getByText } = render(<App />)
+        const { getByText, getByPlaceholderText } = render(<App />)
         const addButton = getByText('Adicionar')
+        const inputForm = getByPlaceholderText('Novo usuário')
 
+        await userEvent.type(inputForm, 'Banana')
         await userEvent.click(addButton);
 
-        expect(getByText('Novo')).toBeInTheDocument()
+
+        expect(getByText('Banana')).toBeInTheDocument()
+    })
+
+    it('should get data from the api', async () => {
+        
     })
 })
 
-// https://youtu.be/edXudaVB0Bg?t=2680
+// https://youtu.be/edXudaVB0Bg?t=2664
