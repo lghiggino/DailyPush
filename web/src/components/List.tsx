@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import Button from "./Button"
 
 type ListProps = {
     initialItems: string[]
@@ -29,22 +30,20 @@ export default function List({ initialItems }: ListProps) {
                 value={newItem}
                 onChange={(ev) => { setNewItem(ev.target.value) }} />
 
-            <button
-                onClick={() => { addToList(newItem) }}>
-                Adicionar
-            </button>
+            <Button
+                onClick={() => { addToList(newItem) }}
+                text={"Adicionar"}
+            />
+
 
             <ul>
                 {list.map(item =>
-                    <li
-                        key={item}
-                    >
-                        {item}
-                        <button
+                    <li key={item} className={"flex flex-row"} >
+                        <p className="mr-10" style={{minWidth: '120px'}}>{item}</p>
+                        <Button
                             onClick={() => { removeFromList(item) }}
-                        >
-                            Remover
-                        </button>
+                            text={"Remover"}
+                        />
                     </li>
                 )}
             </ul>
