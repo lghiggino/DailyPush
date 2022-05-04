@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body, input{
+    @apply bg-[#09090a] text-zinc-100
+}
+
 .button{
     @apply bg-[#8257e6] px-10 h-6 rounded text-violet-100 hover:bg-violet-700 transition-colors
 }
