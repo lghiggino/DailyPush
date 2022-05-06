@@ -1,5 +1,5 @@
 import { MailAdapter } from "../adapters/mail.adapter";
-import { FeedbacksRepository } from "../repositories/feedbacks.repository";
+import { FeedbacksRepository } from "../repositories/feedbacksRepository";
 
 interface SubmitFeedbackServiceRequest {
     type: string;
@@ -15,6 +15,18 @@ export class SubmitFeedbackService {
 
     async execute(request: SubmitFeedbackServiceRequest) {
         const { type, comment, screenshot } = request;
+
+        if(!type){
+            throw new Error('Type is required')
+        }
+
+        if(!comment){
+            throw new Error('Comment is required')
+        }
+
+        if(screenshot && !screenshot.startsWith('data:image/png;base64')){
+            throw new Error('Invalid Screenshot format')
+        }
 
         const feedback = await this.feedbacksRepository.create({
             type,

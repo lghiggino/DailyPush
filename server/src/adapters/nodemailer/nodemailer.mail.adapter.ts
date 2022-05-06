@@ -29,5 +29,3 @@ export class NodemailerMailAdapter implements MailAdapter {
         
     };
 }
-
-//https://youtu.be/bm2dnsPqcek?t=5316

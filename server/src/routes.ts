@@ -1,14 +1,9 @@
 import { Router } from "express";
-import nodemailer from 'nodemailer';
-import { env } from 'process';
 import { NodemailerMailAdapter } from "./adapters/nodemailer/nodemailer.mail.adapter";
-import { PrismaFeedbacksRepository } from "./repositories/prisma/prisma.feedbacks.repository";
-import { SubmitFeedbackService } from "./services/submitFeedback.service";
-
+import { PrismaFeedbacksRepository } from "./repositories/prisma/prismaFeedbacksRepository";
+import { SubmitFeedbackService } from "./services/submitFeedbackService";
 
 export const routes = Router()
-
-
 
 routes.get('/health', (req, res) => {
     res.json(`I am healthy at ${Date.now()}`)
