@@ -2,3 +2,4 @@ node_modules/
 react-unit-testing/.dccache
 react-unit-testing/package-lock.json
 server/.dccache
+mobile/.dccache
