@@ -41,6 +41,7 @@ export class SubmitFeedbackService {
                 '<p style="font-size: 18px;"> --Novo Feedback-- </p>',
                 `<p>Tipo do feedback: ${type}</p>`,
                 `<p>Comentário: ${comment}</p>`,
+                screenshot ? `<img style="max-width: 80%; height: auto;" src="${screenshot}" alt="imagem de uma feedback do tipo: ${type}"` : "",
                 '</div>'
             ].join('\n')
         })
