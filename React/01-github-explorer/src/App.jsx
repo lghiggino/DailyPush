@@ -1,5 +1,4 @@
-
-
 export function App(){
-    return <h1>hello world, banana</h1>
+    // throw new Error('deu erro aqui')
+    return <h1>hello world, teste</h1>
 }

@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     mode: 'development',
+    devtool: 'eval-nosources-cheap-module-source-map',
     entry: path.resolve(__dirname, 'src', 'index.jsx'),
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -12,7 +13,7 @@ module.exports = {
         extensions: ['.js', '.jsx', '.ts', '.tsx']
     },
     devServer: {
-        // contentBase: path.resolve(__dirname, 'public'),
+        // contentBase: path.resolve(__dirname, 'public'), @deprecated
         port: 3987
     },
     plugins: [
