@@ -1,6 +1,12 @@
 import './styles/global.scss';
 
+import { RepositoryList } from './components/RepositoryList';
+
 export function App(){
     // throw new Error('deu erro aqui')
-    return <h1>hello world, teste</h1>
+    return (
+    <>
+        <RepositoryList />
+    </>
+    )
 }
