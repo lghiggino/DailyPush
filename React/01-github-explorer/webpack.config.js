@@ -1,9 +1,12 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+const isDevelopment = process.env.NODE_ENV !== 'production'
+//https://app.rocketseat.com.br/node/chapter-i-1/group/configurando-ambiente/lesson/ambiente-dev-e-producao
+
 module.exports = {
-    mode: 'development',
-    devtool: 'eval-nosources-cheap-module-source-map',
+    mode: isDevelopment ? 'development' : 'production',
+    devtool: isDevelopment ? 'eval-nosources-cheap-module-source-map' : 'source-map',
     entry: path.resolve(__dirname, 'src', 'index.jsx'),
     output: {
         path: path.resolve(__dirname, 'dist'),
