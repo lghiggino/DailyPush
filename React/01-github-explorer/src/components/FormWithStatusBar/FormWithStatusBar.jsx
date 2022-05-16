@@ -7,7 +7,7 @@ export function FormWithStatusBar() {
         type: "",
         name: "",
         state: "",
-        city: ""
+        email: ""
     })
 
     const [progress, setProgress] = useState(0)
@@ -16,7 +16,7 @@ export function FormWithStatusBar() {
         type: "unchecked",
         name: "unchecked",
         state: "unchecked",
-        city: "unchecked"
+        email: "unchecked"
     })
 
     function handleValidationAndProgress() {
@@ -29,8 +29,12 @@ export function FormWithStatusBar() {
         if (formData.state) {
             setObjectProgress(data => ({ ...data, state: "checked" }))
         }
-        if (formData.city.length) {
-            setObjectProgress(data => ({ ...data, city: "checked" }))
+        if (formData.email.length) {
+            const email = formData.email
+            const validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if(email.match(validRegex)){
+                setObjectProgress(data => ({ ...data, email: "checked" }))
+            }
         }
     }
 
@@ -63,11 +67,11 @@ export function FormWithStatusBar() {
         }
     }
 
-    function handleCity(ev) {
-        if (formData.city.length > 0 && objectProgress.city === "checked") {
+    function handleemail(ev) {
+        if (formData.email.length > 0 && objectProgress.email === "checked") {
             return
         } else {
-            setFormData(data => ({ ...data, city: ev.target.value }))
+            setFormData(data => ({ ...data, email: ev.target.value }))
             handleValidationAndProgress()
         }
     }
@@ -124,10 +128,10 @@ export function FormWithStatusBar() {
                     </select>
                 </div>
                 <div className="form-input">
-                    <label>city</label>
+                    <label>email</label>
                     <input
-                        htmlFor="city"
-                        onChange={(ev) => { handleCity(ev) }}
+                        htmlFor="email"
+                        onChange={(ev) => { handleemail(ev) }}
                     ></input>
                 </div>
             </div>
