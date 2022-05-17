@@ -92,7 +92,7 @@ export function FormWithStatusBar() {
     }, [objectProgress])
 
     return (
-        <>
+        <div className='wrapper'>
             <StatusBar progress={progress} />
             <div className="form-wrapper">
                 <div className="form-input">
@@ -135,6 +135,6 @@ export function FormWithStatusBar() {
                     ></input>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
