@@ -32,7 +32,7 @@ export function FormWithStatusBar() {
         if (formData.email.length) {
             const email = formData.email
             const validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-            if(email.match(validRegex)){
+            if (email.match(validRegex)) {
                 setObjectProgress(data => ({ ...data, email: "checked" }))
             }
         }
@@ -40,38 +40,38 @@ export function FormWithStatusBar() {
 
 
     function handleName(ev) {
+        setFormData(data => ({ ...data, name: ev.target.value }))
         if (formData.name.length > 0 && objectProgress.name === "checked") {
             return
         } else {
-            setFormData(data => ({ ...data, name: ev.target.value }))
             handleValidationAndProgress()
         }
 
     }
 
     function handleType(ev) {
+        setFormData(data => ({ ...data, type: ev.target.value }))
         if (formData.type.length > 0 && objectProgress.type === "checked") {
             return
         } else {
-            setFormData(data => ({ ...data, type: ev.target.value }))
             handleValidationAndProgress()
         }
     }
 
     function handleState(ev) {
+        setFormData(data => ({ ...data, state: ev.target.value }))
         if (formData.state.length > 0 && objectProgress.state === "checked") {
             return
         } else {
-            setFormData(data => ({ ...data, state: ev.target.value }))
             handleValidationAndProgress()
         }
     }
 
-    function handleemail(ev) {
+    function handleEmail(ev) {
+        setFormData(data => ({ ...data, email: ev.target.value }))
         if (formData.email.length > 0 && objectProgress.email === "checked") {
             return
         } else {
-            setFormData(data => ({ ...data, email: ev.target.value }))
             handleValidationAndProgress()
         }
     }
@@ -107,7 +107,6 @@ export function FormWithStatusBar() {
                     <select
                         name="type"
                         onChange={(ev) => { handleType(ev) }}
-                        value={formData.type}
                     >
                         <option value="value1">Value 1</option>
                         <option value="value2">Value 2</option>
@@ -131,7 +130,7 @@ export function FormWithStatusBar() {
                     <label>email</label>
                     <input
                         htmlFor="email"
-                        onChange={(ev) => { handleemail(ev) }}
+                        onChange={(ev) => { handleEmail(ev) }}
                     ></input>
                 </div>
             </div>

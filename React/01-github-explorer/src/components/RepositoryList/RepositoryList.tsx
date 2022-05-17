@@ -16,7 +16,6 @@ export function RepositoryList() {
     async function getRepoData() {
         const { data } = await axios.get('https://api.github.com/users/lghiggino/repos')
         setRepositories(data)
-        console.log(repositories)
     }
 
     useEffect(() => {
