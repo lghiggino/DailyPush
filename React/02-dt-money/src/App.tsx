@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { GlobalStyle } from "./styles/global"
 
 const Title = styled.h1`
   font-size: 64px;
@@ -9,11 +10,11 @@ const Title = styled.h1`
 export function App() {
   return (
     <div className="App">
+      <GlobalStyle />
       <h1>
         Hello World
       </h1>
-
-      <Title>Teste</Title>
+      
     </div>
   )
 }
