@@ -1,5 +1,5 @@
 import { Summary } from "../summary"
-import { TransactionTable } from "../transactionsTable"
+import { TransactionsTable } from "../transactionsTable"
 import { Container } from "./styles"
 
 interface DashboardProps {
@@ -12,7 +12,7 @@ export function Dashboard({ props, children, style }: DashboardProps) {
     return (
         <Container>
             <Summary />
-            <TransactionTable />
+            <TransactionsTable />
         </Container>
     )
 }

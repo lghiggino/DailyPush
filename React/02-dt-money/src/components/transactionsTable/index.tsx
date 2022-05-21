@@ -1,6 +1,40 @@
+
+import { useEffect, useState } from "react";
+import { api } from "../../services/api";
 import { Container } from "./styles";
 
-export function TransactionTable() {
+
+export type TransactionType = {
+    id: number
+    title: string
+    amount: number
+    type: string
+    category: string
+    createdAt: string
+    userId: number
+}
+
+export function TransactionsTable() {
+    const [transactionList, setTransactionList] = useState<TransactionType[]>([])
+
+    async function getTransactionData() {
+        const transactionList = await api.get('/transactions')
+        setTransactionList(transactionList.data)
+        console.log(transactionList.data)
+    }
+
+    useEffect(() => {
+        getTransactionData()
+    }, [])
+
+    if (transactionList.length === 0) {
+        return (
+            <Container>
+                <p>Aguardando carregamento das transações</p>
+            </Container>
+        )
+    }
+
     return (
         <Container>
             <table>
@@ -13,30 +47,14 @@ export function TransactionTable() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Desenvolvimento de website</td>
-                        <td className="deposit">R$12000,00</td>
-                        <td>Desenvolvimento</td>
-                        <td>20/05/2022</td>
-                    </tr>
-                    <tr>
-                        <td>Aluguel</td>
-                        <td className="withdraw">- R$1100,00</td>
-                        <td>Casa</td>
-                        <td>10/05/2022</td>
-                    </tr>
-                    <tr>
-                        <td>Desenvolvimento de website</td>
-                        <td>R$12000,00</td>
-                        <td>Desenvolvimento</td>
-                        <td>20/05/2022</td>
-                    </tr>
-                    <tr>
-                        <td>Desenvolvimento de website</td>
-                        <td>R$12000,00</td>
-                        <td>Desenvolvimento</td>
-                        <td>20/05/2022</td>
-                    </tr>
+                    {transactionList.map(transaction => (
+                        <tr key={transaction.id}>
+                            <td>{transaction.title}</td>
+                            <td className={transaction.type}>{transaction.amount}</td>
+                            <td>{transaction.category}</td>
+                            <td>{transaction.createdAt}</td>
+                        </tr>
+                    ))}
                 </tbody>
 
             </table>
