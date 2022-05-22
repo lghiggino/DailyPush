@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import incomeImg from '../../assets/income.svg';
 import outcomeImg from '../../assets/outcome.svg';
 import totalImg from '../../assets/total.svg';
-import { TransactionType } from '../dashboard';
+import { TransactionType } from '../transactionsTable';
 
 import { Container } from "./styles"
 
@@ -16,12 +16,18 @@ export function Summary({ transactionList }: SummaryProps) {
     const [isBalanceNegative, setIsBalanceNegative] = useState<boolean>(false)
 
     function calcDeposits() {
+        if (!transactionList.length){
+            return
+        }
         const sumDeposits = transactionList.filter((transaction): any => { return transaction.type === 'deposit' })
         const reducedDeposits = sumDeposits.reduce<number>((prev, curr): number => prev + curr.amount, 0)
         setSumDeposit(reducedDeposits)
     }
 
     function calcWithdraws() {
+        if (!transactionList.length){
+            return
+        }
         const sumWithdraws = transactionList.filter((transaction): any => { return transaction.type === 'withdraw' })
         const reducedWithraws = sumWithdraws.reduce<number>((prev, curr): number => prev + curr.amount, 0)
         setSumWithdraw(reducedWithraws)
