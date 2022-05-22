@@ -21,6 +21,11 @@ export function Summary({ transactionList }: SummaryProps) {
         }
         const sumDeposits = transactionList.filter((transaction): any => { return transaction.type === 'deposit' })
         const reducedDeposits = sumDeposits.reduce<number>((prev, curr): number => prev + curr.amount, 0)
+        const intlFormatted = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+        }).format(reducedDeposits)
+        // console.log(intlFormatted)
         setSumDeposit(reducedDeposits)
     }
 
@@ -30,6 +35,11 @@ export function Summary({ transactionList }: SummaryProps) {
         }
         const sumWithdraws = transactionList.filter((transaction): any => { return transaction.type === 'withdraw' })
         const reducedWithraws = sumWithdraws.reduce<number>((prev, curr): number => prev + curr.amount, 0)
+        const intlFormatted = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+        }).format(reducedWithraws * -1)
+        // console.log(intlFormatted)
         setSumWithdraw(reducedWithraws)
     }
 
