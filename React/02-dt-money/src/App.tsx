@@ -29,4 +29,4 @@ export function App() {
   )
 }
 
-//https://app.rocketseat.com.br/node/chapter-ii-1/group/modal-and-forms/lesson/criando-botoes-de-tipo
+//https://app.rocketseat.com.br/node/chapter-ii-1/group/modal-and-forms/lesson/salvando-dados-do-form
