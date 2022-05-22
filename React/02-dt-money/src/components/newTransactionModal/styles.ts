@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { darken } from "polished";
 
 export const Container = styled.form`
     h2 {
@@ -11,6 +12,7 @@ export const Container = styled.form`
         width: 100%;
         padding: 0 1.5rem;
         height: 4rem;
+        margin-bottom: 1rem;
 
         border-radius: 0.25rem;
         border: 1px solid #d7d7d7;
@@ -22,10 +24,6 @@ export const Container = styled.form`
 
         &::placeholder{
             color: var(--text-body);
-        }
-
-        & + input {
-            margin-top: 1rem;
         }
     }
 
@@ -48,6 +46,42 @@ export const Container = styled.form`
                 filter: brightness(0.9);
             }
         }
+`;
 
+export const TransactionTypeContainer = styled.div`
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+
+    button{
+        height: 4rem;
+        border: 1px solid #d7d7d7;
+        border-radius: 0.25rem;
+        background: transparent;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        transition: border-color 0.2s;
+
+        &:hover{
+            border-color: ${darken(0.1, '#d7d7d7')}
+        }
+
+        img {
+            width: 1.5rem;
+            aspect-ratio: 1/1;
+        }
         
+        span {
+            display: inline-block;
+            margin-left: 1rem;
+            font-size: 1rem;
+            color: var(--text-title);
+        }
+
+    }
 `;
