@@ -16,6 +16,10 @@ export const Container = styled.div`
             background-color: var(--green);
             color: #FFF;
         }
+
+        &.negative{
+            background-color: var(--red);
+        }
     }
 
     header{

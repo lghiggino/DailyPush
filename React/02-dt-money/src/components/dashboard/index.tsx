@@ -36,7 +36,7 @@ export function Dashboard({ props, children, style }: DashboardProps) {
     
     return (
         <Container>
-            <Summary />
+            <Summary transactionList={transactionList}  />
             <TransactionsTable transactionList={transactionList} />
         </Container>
     )

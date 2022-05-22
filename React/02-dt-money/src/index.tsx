@@ -36,6 +36,15 @@ createServer({
           category: 'Casa',
           createdAt: '2022-05-09',
           userId: 1
+        },
+        {
+          id: 4,
+          title: 'Carro Novo',
+          amount: 22800,
+          type: 'withdraw',
+          category: 'Casa',
+          createdAt: '2022-05-08',
+          userId: 1
         }
       ]
     })
