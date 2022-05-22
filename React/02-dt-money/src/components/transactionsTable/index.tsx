@@ -1,7 +1,14 @@
 import { Container } from "./styles";
-import { TransactionType } from '../dashboard'
 
-
+export type TransactionType = {
+    id: number
+    title: string
+    amount: number
+    type: string
+    category: string
+    createdAt: string
+    userId: number
+}
 interface TransactionsTableProps {
     transactionList: TransactionType[]
 }
@@ -28,7 +35,7 @@ export function TransactionsTable({ transactionList }: TransactionsTableProps) {
                     </tr>
                 </thead>
                 <tbody>
-                    {transactionList.map(transaction => (
+                    {transactionList.length && transactionList.map(transaction => (
                         <tr key={transaction.id}>
                             <td>{transaction.title}</td>
                             <td className={transaction.type}>{transaction.type === 'withdraw' ? '-' : ''}R${transaction.amount}</td>
