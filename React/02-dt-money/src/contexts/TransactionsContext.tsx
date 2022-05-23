@@ -11,6 +11,8 @@ export type TransactionType = {
     userId: number
 }
 
+type TransactionCreationProps = Omit<TransactionType, 'id' | 'createdAt'>
+
 interface TransactionsProviderProps{
     children: ReactNode
 }
@@ -29,6 +31,11 @@ export function TransactionsProvider({children}: TransactionsProviderProps){
     useEffect(() => {
         getTransactionData()
     }, [])
+
+    function createTransaction(transaction: TransactionCreationProps){
+
+        api.post('/transactions', transaction)
+    }
 
     return (
         <TransactionsContext.Provider value={transactionList}>
