@@ -1,16 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import incomeImg from '../../assets/income.svg';
 import outcomeImg from '../../assets/outcome.svg';
 import totalImg from '../../assets/total.svg';
-import { TransactionType } from '../transactionsTable';
+import { TransactionsContext } from '../../contexts/TransactionsContext';
 
 import { Container } from "./styles"
 
-interface SummaryProps {
-    transactionList: TransactionType[]
-}
 
-export function Summary({ transactionList }: SummaryProps) {
+export function Summary() {
+    const transactionList = useContext(TransactionsContext)
+
     const [sumDeposit, setSumDeposit] = useState<number>(0)
     const [sumWithdraw, setSumWithdraw] = useState<number>(0)
     const [isBalanceNegative, setIsBalanceNegative] = useState<boolean>(false)

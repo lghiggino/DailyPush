@@ -1,19 +1,11 @@
+import { useContext } from "react";
+import { TransactionsContext } from "../../contexts/TransactionsContext";
 import { Container } from "./styles";
 
-export type TransactionType = {
-    id: number
-    title: string
-    amount: number
-    type: string
-    category: string
-    createdAt: string
-    userId: number
-}
-interface TransactionsTableProps {
-    transactionList: TransactionType[]
-}
 
-export function TransactionsTable({ transactionList }: TransactionsTableProps) {
+
+export function TransactionsTable() {
+    const transactionList = useContext(TransactionsContext)
 
     if (transactionList.length === 0) {
         return (
