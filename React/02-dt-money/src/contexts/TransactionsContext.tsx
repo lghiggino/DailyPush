@@ -17,7 +17,14 @@ interface TransactionsProviderProps{
     children: ReactNode
 }
 
-export const TransactionsContext = createContext<TransactionType[]>([]);
+interface TransactionContextProperties {
+    transactionList: TransactionType[]
+    createTransaction: (transaction: TransactionType) => void;
+}
+
+export const TransactionsContext = createContext<TransactionContextProperties>(
+    {} as TransactionContextProperties
+);
 
 export function TransactionsProvider({children}: TransactionsProviderProps){
     const [transactionList, setTransactionList] = useState<TransactionType[]>([])
@@ -33,12 +40,11 @@ export function TransactionsProvider({children}: TransactionsProviderProps){
     }, [])
 
     function createTransaction(transaction: TransactionCreationProps){
-
         api.post('/transactions', transaction)
     }
 
     return (
-        <TransactionsContext.Provider value={transactionList}>
+        <TransactionsContext.Provider value={{transactionList, createTransaction}}>
             {children}
         </TransactionsContext.Provider>
     )
