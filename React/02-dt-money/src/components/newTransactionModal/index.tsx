@@ -1,6 +1,6 @@
 import { FormEvent, useState, useContext } from 'react';
 import { api } from '../../services/api';
-import { TransactionsContext } from '../../contexts/TransactionsContext';
+import { TransactionsContext, TransactionType } from '../../contexts/TransactionsContext';
 import Modal from 'react-modal';
 
 import closeButtonImg from '../../assets/close.svg';
@@ -10,8 +10,8 @@ import outcomeImg from '../../assets/outcome.svg';
 import { Container, TransactionTypeContainer, RadioBox } from './styles';
 
 
-
 Modal.setAppElement("#root")
+
 
 interface NewTransactionModalProps {
     isOpen: boolean;
@@ -19,20 +19,35 @@ interface NewTransactionModalProps {
 }
 
 export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionModalProps) {
-    const transactionList = useContext(TransactionsContext)
-    
+    const { createTransaction } = useContext(TransactionsContext)
+
     const [type, setType] = useState<"deposit" | "withdraw">("deposit")
     const [title, setTitle] = useState('')
     const [amount, setAmount] = useState(0,)
     const [category, setCategory] = useState('')
 
+    const userId = 1
 
-    function handleCreateNewTransaction(ev: FormEvent) {
+    async function handleCreateNewTransaction(ev: FormEvent) {
         ev.preventDefault()
-
+        try {
+            await createTransaction({
+                type,
+                title,
+                amount,
+                category,
+                userId
+            } as TransactionType)
+        } catch (error) {
+            console.log(error)
+        }
         
+        setType("deposit")
+        setTitle('')
+        setAmount(0)
+        setCategory('')
 
-        onRequestClose()
+        onRequestClose();
     }
 
     return (

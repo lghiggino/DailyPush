@@ -8,14 +8,14 @@ import { Container } from "./styles"
 
 
 export function Summary() {
-    const transactionList = useContext(TransactionsContext)
+    const { transactionList } = useContext(TransactionsContext)
 
     const [sumDeposit, setSumDeposit] = useState<number>(0)
     const [sumWithdraw, setSumWithdraw] = useState<number>(0)
     const [isBalanceNegative, setIsBalanceNegative] = useState<boolean>(false)
 
     function calcDeposits() {
-        if (!transactionList.length){
+        if (!transactionList.length) {
             return
         }
         const sumDeposits = transactionList.filter((transaction): any => { return transaction.type === 'deposit' })
@@ -29,7 +29,7 @@ export function Summary() {
     }
 
     function calcWithdraws() {
-        if (!transactionList.length){
+        if (!transactionList.length) {
             return
         }
         const sumWithdraws = transactionList.filter((transaction): any => { return transaction.type === 'withdraw' })

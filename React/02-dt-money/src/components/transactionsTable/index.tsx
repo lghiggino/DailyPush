@@ -5,7 +5,7 @@ import { Container } from "./styles";
 
 
 export function TransactionsTable() {
-    const transactionList = useContext(TransactionsContext)
+    const { transactionList } = useContext(TransactionsContext)
 
     if (transactionList.length === 0) {
         return (
