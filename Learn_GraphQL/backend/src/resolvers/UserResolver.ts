@@ -1,13 +1,40 @@
-import { Query, Resolver } from "type-graphql";
+import { Arg, Mutation, Query, Resolver } from "type-graphql";
 import { User } from "../models/User";
+import crypto from "crypto"
 
 @Resolver()
 export class UserResolver {
-    private data: User[] = []
+    private data: User[] = [
+        {id: crypto.randomUUID(), name: "Diego"}
+    ]
 
     @Query(() => [User])
     async users(){
         return this.data;
+    }
+
+    @Mutation(() => User)
+    async createUser(
+        @Arg('name') name: string
+    ){
+        const user: User = {
+            id: crypto.randomUUID(),
+            name
+        }
+
+        this.data.push(user)
+
+        return user
+    }
+
+    @Mutation(() => [User])
+    async deleteUser(
+        @Arg('id') id: string
+    ){
+        const newData = this.data.filter(item => item.id !== id)
+        this.data = newData
+
+        return this.data
     }
 }
 
