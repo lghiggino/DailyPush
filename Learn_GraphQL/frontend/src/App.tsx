@@ -3,7 +3,7 @@ import { FormEvent, useEffect } from 'react'
 import './App.css'
 import { NewUserForm } from './components/NewUserForm'
 
-const GET_USER = gql`
+export const GET_USER = gql`
   query {
     users {
     id,

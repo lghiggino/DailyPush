@@ -1,5 +1,7 @@
 import { gql, useMutation } from "@apollo/client"
 import { FormEvent, useState } from "react"
+import { GET_USER } from "../App"
+import { client } from "../lib/apollo"
 
 const CREATE_USER = gql`
     mutation ($name: String!) {
@@ -23,6 +25,18 @@ export function NewUserForm() {
         await createUser({
             variables: {
                 name
+            },
+            update: (cache, {data: {createUser}}) => {
+                const {users} = client.readQuery({query: GET_USER})
+                cache.writeQuery({
+                    query: GET_USER,
+                    data: {
+                        users: {
+                            ...users,
+                            createUser
+                        }
+                    }
+                })
             }
         })
     }

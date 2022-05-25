@@ -37,6 +37,15 @@
   }
 }
 
+body{
+  font-size: 16px;
+}
+
 button {
-  font-size: calc(10px + 2vmin);
+  font-size: calc(2vmin);
+}
+
+li {
+  list-style: none;
+  margin: 0.5rem;
 }
