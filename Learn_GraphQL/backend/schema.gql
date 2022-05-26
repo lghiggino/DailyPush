@@ -9,6 +9,7 @@ type Mutation {
 }
 
 type Query {
+  getUserByEmail(email: String!): User!
   users: [User!]!
 }
 
