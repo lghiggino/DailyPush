@@ -7,7 +7,8 @@ export const GET_USER = gql`
   query {
     users {
     id,
-    name
+    name,
+    email
     }
   }
 `
@@ -24,6 +25,7 @@ const DELETE_USER = gql`
 type User = {
   name: string
   id: string
+  email: string
 }
 
 function App() {
@@ -53,7 +55,7 @@ function App() {
       <ul>
         {data?.users.map((user): any => (
           <li key={user.id}>
-            {user.name}
+            {user.name} - {user.email}
             <button onClick={() => handleUserDeletion(user.id)}>
               Apagar
             </button>

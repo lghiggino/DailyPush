@@ -5,7 +5,7 @@ import crypto from "crypto"
 @Resolver()
 export class UserResolver {
     private data: User[] = [
-        {id: crypto.randomUUID(), name: "Diego"}
+        {id: crypto.randomUUID(), name: "Diego", email: "diego@dora.com"}
     ]
 
     @Query(() => [User])
@@ -15,11 +15,13 @@ export class UserResolver {
 
     @Mutation(() => User)
     async createUser(
-        @Arg('name') name: string
+        @Arg('name') name: string,
+        @Arg('email') email: string
     ){
         const user: User = {
             id: crypto.randomUUID(),
-            name
+            name,
+            email
         }
 
         this.data.push(user)
