@@ -3,6 +3,7 @@ import path from 'path'
 import crypto from 'crypto'
 import { ApolloServer, gql } from 'apollo-server'
 import { UserResolver } from './src/resolvers/UserResolver'
+import { startServer } from './src/App'
 
 // TYPES
 import { Book } from './src/models/Book'
@@ -50,6 +51,10 @@ const typeDefs = gql`
     getUsers: [User]!
     getUserByEmail(email: String): User!
   }
+
+  type Mutation {
+      createUser(name: String!, email: String!): User!
+  }
 `;
 
 const resolvers = {
@@ -58,16 +63,22 @@ const resolvers = {
         books: () => booksDatabase,
         getUsers: () => usersDatabase,
         getUserByEmail: (_: any, args: { email: string }) => {
-            console.log("entrou aqui")
             return usersDatabase.find(user => user.email === args.email)
+        }
+    },
+    Mutation: {
+        createUser: (_: any, args: { name: string, email: string }) => {
+            const newUser = {
+                _id: crypto.randomUUID(),
+                name: args.name,
+                email: args.email,
+                active: true
+            }
+
+            usersDatabase.push(newUser)
+            return newUser;
         }
     }
 }
 
-async function main() {
-    const server = new ApolloServer({ typeDefs, resolvers })
-    const { url } = await server.listen()
-    console.log(`server running at url: ${url}`)
-}
-
-main()
+startServer({typeDefs, resolvers})

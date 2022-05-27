@@ -1,13 +1,21 @@
-import { Field, ID, ObjectType } from "type-graphql";
+import mongoose from "mongoose";
 
-@ObjectType()
-export class User {
-    @Field(_type => ID)
-    id: string;
+const Schema = new mongoose.Schema({
+    firstName: {
+        type: String,
+        required: true,
+    },
+    lastName: {
+        type: String,
+        required: true,
+    },
+    email: {
+        type: String,
+        required: true,
+    },
+    active: {
+        type: Boolean
+    }
+}) 
 
-    @Field()
-    name: string;
-
-    @Field()
-    email: string;
-}
+export default mongoose.model('User', Schema);

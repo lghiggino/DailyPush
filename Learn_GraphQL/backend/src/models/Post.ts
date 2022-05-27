@@ -1,17 +1,19 @@
-import { Field, ID, ObjectType } from "type-graphql";
-import { User } from "./User";
+import mongoose from "mongoose";
 
-@ObjectType()
-export class Post {
-    @Field(_type => ID)
-    id: string;
+const Schema = new mongoose.Schema({
+    title: {
+        type: String,
+        required: true,
+    },
+    content: {
+        type: String,
+        required: true,
+    },
+    author: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
+    }
+}) 
 
-    @Field()
-    title: string;
-
-    @Field()
-    content: string;
-
-    @Field()
-    author: Omit<User, 'id' | 'email'>;
-}
+export default mongoose.model('Post', Schema);
