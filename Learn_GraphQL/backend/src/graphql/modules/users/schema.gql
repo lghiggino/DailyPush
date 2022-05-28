@@ -1,27 +1,31 @@
 type User {
-    _id: ID
-    firstName: String!
-    lastName: String!
-    Email: String!
-    active: Boolean!
+  _id: ID!
+  firstName: String!
+  lastName: String!
+  fullName: String!
+  email: String
+  active: Boolean!
 }
 
-# UserInput is the data that is sent during the mutation
 input UserInput {
-    firstName: String!,
-    lastName: String!,
-    email: String!,
-    active: Boolean!
+  firstName: String!
+  lastName: String!
+  email: String
+  active: Boolean
 }
 
-type Query {
-    getAllUsers: [User]!
-    getUserById(id: ID!): User!
+type QueriesHolder {
+  users: [User!]!
+  user(id: ID): User!
 }
 
-# data is an object with the UserInput format
-type Mutation {
-    createUser(data: UserInput): User!
-    updateUser(id: ID!, data: UserInput): User!
-    deleteUser(id: ID!): Boolean
+type MutationsHolder {
+  createUser(data: UserInput!): User!
+  updateUser(id: ID, data: UserInput!): User!
+  deleteUser(id: ID!): Boolean
+}
+
+schema {
+  query: QueriesHolder
+  mutation: MutationsHolder
 }

@@ -10,14 +10,19 @@ input BookInput {
     author: ID!
 }
 
-type Query {
+type QueriesHolder {
     getAllBooks: [Book]!
     getBookById(id: ID!): Book!
 }
 
 # data is an object with the BookInput format
-type Mutation {
+type MutationsHolder {
     createBook(data: BookInput): Book!
     updateBook(id: ID!, data: BookInput): Book!
     deleteBook(id: ID!): Boolean
+}
+
+schema {
+  query: QueriesHolder
+  mutation: MutationsHolder
 }

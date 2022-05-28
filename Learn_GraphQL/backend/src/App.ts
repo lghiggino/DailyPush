@@ -1,7 +1,6 @@
 import { ApolloServer, gql } from "apollo-server"
 import mongoose from "mongoose";
 
-
 export async function startServer({typeDefs, resolvers}: any){
   const connection = await mongoose.connect("mongodb://localhost:27017/graphql")
   
