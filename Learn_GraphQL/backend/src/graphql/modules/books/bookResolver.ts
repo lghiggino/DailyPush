@@ -7,9 +7,6 @@ interface BookType {
 }
 
 export default {
-  Book: {
-    fullName: (book: BookType) => `${book.title} ${book.author}`,
-  },
   Query: {
     getAllBooks: async () => await Book.find(),
     getBookById: async (_: any, { id }: any) => await Book.findById(id),
