@@ -1,3 +1,5 @@
+import 'dotenv/config'
+
 import { gql } from 'apollo-server'
 import _ from "lodash";
 import 'reflect-metadata'

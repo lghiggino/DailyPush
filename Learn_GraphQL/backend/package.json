@@ -16,6 +16,7 @@
     "@graphql-tools/schema": "^8.3.13",
     "apollo-server": "^2.1.0",
     "class-validator": "^0.13.2",
+    "dotenv": "^16.0.1",
     "graphql": "15.3.0",
     "lodash": "^4.17.21",
     "mongoose": "^6.3.4",
