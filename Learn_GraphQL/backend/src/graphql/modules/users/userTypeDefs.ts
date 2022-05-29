@@ -19,8 +19,8 @@ export default gql`
   }
 
   extend type Query {
-    users: [User!]!
-    user(id: ID): User!
+    getAllUsers: [User!]!
+    getUserById(id: ID): User!
   }
 
   extend type Mutation {

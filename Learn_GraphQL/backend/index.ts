@@ -23,4 +23,4 @@ startServer({
     resolvers: _.merge({}, bookResolver, postResolver, userResolver)
 })
 
-//https://medium.com/@choudlet/how-to-combine-graphql-type-definitions-quickly-and-easily-with-apollo-server-c96c4d9a7ea1
+//stackoverflow.com/q/60747549/13693557

@@ -14,8 +14,8 @@ export default gql`type Post {
   }
 
   extend type Query {
-    posts: [Post!]!
-    post(id: ID): Post!
+    getAllPosts: [Post!]!
+    getPostById(id: ID): Post!
   }
 
   extend type Mutation {

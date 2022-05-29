@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import uniqueValidator from 'mongoose-unique-validator'
 
 const Schema = new mongoose.Schema({
     firstName: {
@@ -12,10 +13,13 @@ const Schema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
+        unique: true
     },
     active: {
         type: Boolean
     }
 }) 
+
+Schema.plugin(uniqueValidator)
 
 export default mongoose.model('User', Schema);

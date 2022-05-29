@@ -6,8 +6,8 @@ export default {
         author: async (post: any) => await User.findById(post.author),
     },
     Query: {
-        posts: async () => await Post.find(),
-        post: async (_: any, { id }: any) => await Post.findById(id),
+        getAllPosts: async () => await Post.find(),
+        getPostById: async (_: any, { id }: any) => await Post.findById(id),
     },
     Mutation: {
         createPost: (_: any, { data }: any) => Post.create(data),

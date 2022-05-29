@@ -5,17 +5,12 @@ export default {
     fullName: (user: any) => `${user.firstName} ${user.lastName}`,
   },
   Query: {
-    users: async () => await User.find(),
-    user: async (_: any, { id }: any) => await User.findById(id),
+    getAllUsers: async () => await User.find(),
+    getUserById: async (_: any, { id }: any) => await User.findById(id),
   },
   Mutation: {
-    createUser: async (_: any, { data }: any, { pubsub }: any) => {
+    createUser: async (_: any, { data }: any) => {
       const user = await User.create(data);
-
-      pubsub.publish('USER_ADDED', {
-        userAdded: user
-      });
-
       return user;
     },
     updateUser: async (_: any, { id, data }: any) => await User.findByIdAndUpdate(id, data, { new: true }),
