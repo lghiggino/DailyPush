@@ -28,4 +28,8 @@ export default gql`
     updateUser(id: ID, data: UserInput!): User!
     deleteUser(id: ID!): Boolean
   }
+
+  extend type Subscription {
+    userAdded: User!
+  }
 `;

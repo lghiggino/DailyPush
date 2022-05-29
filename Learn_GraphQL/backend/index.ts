@@ -17,6 +17,7 @@ import userResolver from './src/graphql/modules/users/userResolver'
 const baseTypeDefs = gql`
   type Query
   type Mutation
+  type Subscription
 `
 
 
