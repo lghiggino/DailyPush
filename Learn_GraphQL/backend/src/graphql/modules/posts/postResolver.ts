@@ -12,6 +12,6 @@ export default {
     Mutation: {
         createPost: (_: any, { data }: any) => Post.create(data),
         updatePost: (_: any, { id, data }: any) => Post.findOneAndUpdate(id, data, { new: true }),
-        deletePost: async (_: any, { id }: any) => !!(await Post.findOneAndDelete(id)),
+        deletePost: async (_: any, { id }: any) => !!(await Post.findByIdAndDelete(id)),
     },
 };

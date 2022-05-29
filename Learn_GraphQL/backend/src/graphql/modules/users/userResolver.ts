@@ -1,4 +1,5 @@
 import User from '../../../models/User';
+import { UserService } from '../../services/users/userService';
 
 export default {
   User: {
@@ -13,7 +14,7 @@ export default {
       const user = await User.create(data);
       return user;
     },
-    updateUser: async (_: any, { id, data }: any) => await User.findByIdAndUpdate(id, data, { new: true }),
-    deleteUser: async (_: any, { id }: any) => !!(await User.findByIdAndDelete(id)),
+    updateUser: async (_: any, { id, data }: any) => await UserService.findByIdAndUpdate(id, data),
+    deleteUser: async (_: any, { id }: any) => !!(await UserService.deleteById(id)),
   }
 };
