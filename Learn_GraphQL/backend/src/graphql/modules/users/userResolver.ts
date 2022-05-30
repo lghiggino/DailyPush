@@ -12,8 +12,12 @@ export default {
     getUserById: async (_: any, { id }: any) => await User.findById(id),
   },
   Mutation: {
-    createUser: async (_: any, { data }: any) => {
+    createUser: async (_: any, { data }: any, {pubsub}: any) => {
       const user = await User.create(data);
+
+      pubsub.publish(USER_ADDED, {
+        userAddded: user
+      })
 
       return user;
     },
