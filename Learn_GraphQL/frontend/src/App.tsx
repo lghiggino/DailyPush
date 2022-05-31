@@ -3,14 +3,14 @@ import { FormEvent, useEffect } from 'react'
 import './App.css'
 import { NewUserForm } from './components/NewUserForm'
 
-export const GET_USER = gql`
+export const GET_USERS = gql`
   query {
-    users {
-    id,
-    name,
+  getAllUsers{
+    fullName,
+    _id,
     email
-    }
   }
+}
 `
 
 const DELETE_USER = gql`
@@ -23,19 +23,19 @@ const DELETE_USER = gql`
 `
 
 type User = {
-  name: string
-  id: string
+  fullName: string
+  _id: string
   email: string
 }
 
 function App() {
-  const { loading, error, data } = useQuery<{ users: User[] }>(GET_USER)
-  console.log("data", data)
-  console.log("error", error)
+  const { loading, error, data } = useQuery<{ getAllUsers: User[] | [] }>(GET_USERS)
+  // console.log("data >>", data?.getAllUsers)
+  // console.log("error", error)
   const [deleteUser, { data: deleteData, error: deleteError, loading: deleteLoading }] = useMutation(DELETE_USER)
 
   async function handleUserDeletion(id: string) {
-    console.log("deletedId",id)
+    console.log("deletedId", id)
     await deleteUser({
       variables: {
         id
@@ -52,16 +52,19 @@ function App() {
       <div>
         <NewUserForm />
       </div>
-      <ul>
-        {data?.users.map((user): any => (
-          <li key={user.id}>
-            {user.name} - {user.email}
-            <button onClick={() => handleUserDeletion(user.id)}>
-              Apagar
-            </button>
-          </li>
+      <div className='usersDisplay'>
+        <ul>
+        {data?.getAllUsers.map((user): any => (
+            <li className='liColumn' key={user._id}>
+              <p style={{display: 'inline-block'}}>{user.fullname} - {user.email}</p>
+              <button onClick={() => handleUserDeletion(user.id)}>
+                Apagar
+              </button>
+            </li>
         ))}
       </ul>
+      </div>
+      
       {/* <UserFilter /> */}
     </div>
   )
