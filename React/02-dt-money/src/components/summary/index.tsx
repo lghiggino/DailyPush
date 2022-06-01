@@ -9,43 +9,26 @@ import { Container } from "./styles"
 
 export function Summary() {
     const { transactionList } = useContext(TransactionsContext)
+    const [isBalanceNegative, setIsBalanceNegative] = useState<Boolean>(false)
 
-    const [sumDeposit, setSumDeposit] = useState<number>(0)
-    const [sumWithdraw, setSumWithdraw] = useState<number>(0)
-    const [isBalanceNegative, setIsBalanceNegative] = useState<boolean>(false)
-
-    function calcDeposits() {
-        if (!transactionList.length) {
-            return
+    const summary = transactionList.reduce((acc, transaction) => {
+        if (transaction.type === 'deposit') {
+            acc.deposits += transaction.amount;
+            acc.total += transaction.amount;
         }
-        const sumDeposits = transactionList.filter((transaction): any => { return transaction.type === 'deposit' })
-        const reducedDeposits = sumDeposits.reduce<number>((prev, curr): number => prev + curr.amount, 0)
-        const intlFormatted = new Intl.NumberFormat('pt-BR', {
-            style: 'currency',
-            currency: 'BRL'
-        }).format(reducedDeposits)
-        // console.log(intlFormatted)
-        setSumDeposit(reducedDeposits)
-    }
 
-    function calcWithdraws() {
-        if (!transactionList.length) {
-            return
+        if (transaction.type === 'withdraw') {
+            acc.withdrawls += transaction.amount;
+            acc.total -= transaction.amount;
         }
-        const sumWithdraws = transactionList.filter((transaction): any => { return transaction.type === 'withdraw' })
-        const reducedWithraws = sumWithdraws.reduce<number>((prev, curr): number => prev + curr.amount, 0)
-        const intlFormatted = new Intl.NumberFormat('pt-BR', {
-            style: 'currency',
-            currency: 'BRL'
-        }).format(reducedWithraws * -1)
-        // console.log(intlFormatted)
-        setSumWithdraw(reducedWithraws)
-    }
 
-    useEffect(() => {
-        calcDeposits()
-        calcWithdraws()
-    }, [transactionList])
+        return acc;
+    }, {
+        deposits: 0,
+        withdrawls: 0,
+        total: 0
+    })
+
 
     return (
         <Container>
@@ -54,21 +37,37 @@ export function Summary() {
                     <p>Entradas</p>
                     <img src={incomeImg} alt="Entradas" />
                 </header>
-                <strong><>R$ {sumDeposit}</></strong>
+                <strong>
+                    {new Intl.NumberFormat('pt-BR', {
+                        style: 'currency',
+                        currency: 'BRL'
+                    }).format(summary.deposits)}
+                </strong>
             </div>
             <div>
                 <header>
                     <p>Saídas</p>
                     <img src={outcomeImg} alt="Saídas" />
                 </header>
-                <strong>R$- {sumWithdraw}</strong>
+                <strong>
+                    -
+                    {new Intl.NumberFormat('pt-BR', {
+                        style: 'currency',
+                        currency: 'BRL'
+                    }).format(summary.withdrawls)}
+                </strong>
             </div>
             <div className="highlight-background">
                 <header>
                     <p>Total</p>
                     <img src={totalImg} alt="Total" />
                 </header>
-                <strong>R$ {sumDeposit - sumWithdraw}</strong>
+                <strong>
+                    {new Intl.NumberFormat('pt-BR', {
+                        style: 'currency',
+                        currency: 'BRL'
+                    }).format(summary.total)}
+                </strong>
             </div>
         </Container>
     )
