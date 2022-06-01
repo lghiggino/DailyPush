@@ -1,15 +1,13 @@
-import { useEffect, useState, useContext } from 'react';
 import incomeImg from '../../assets/income.svg';
 import outcomeImg from '../../assets/outcome.svg';
 import totalImg from '../../assets/total.svg';
-import { TransactionsContext } from '../../contexts/TransactionsContext';
+import { useTransactions } from '../../hooks/useTransactions';
 
 import { Container } from "./styles"
 
 
 export function Summary() {
-    const { transactionList } = useContext(TransactionsContext)
-    const [isBalanceNegative, setIsBalanceNegative] = useState<Boolean>(false)
+    const { transactionList } = useTransactions()
 
     const summary = transactionList.reduce((acc, transaction) => {
         if (transaction.type === 'deposit') {
