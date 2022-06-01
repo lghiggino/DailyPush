@@ -26,5 +26,3 @@ export function App() {
     </TransactionsProvider>
   )
 }
-
-//https://app.rocketseat.com.br/node/chapter-ii-1/group/contextos-e-hooks/lesson/finalizando-insercao
