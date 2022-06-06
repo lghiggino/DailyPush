@@ -12,14 +12,23 @@ export default {
     getUserById: async (_: any, { id }: any) => await User.findById(id),
   },
   Mutation: {
-    createUser: async (_: any, { data }: any, {pubsub}: any) => {
-      const user = await User.create(data);
+    createUser: async (_: any, { data }: any, { pubsub }: any) => {
+      console.log("Entrou em createUser")
+      try {
+        console.log("Entrou em createUser no try")
+        const user = await User.create(data);
 
-      pubsub.publish(USER_ADDED, {
-        userAddded: user
-      })
+        pubsub.publish(USER_ADDED, {
+          userAddded: user
+        })
 
-      return user;
+        return user;
+      } catch (error: any) {
+        console.log("Entrou em createUser no catch")
+        console.log(error )
+        throw new Error(`${error._message}`)
+      }
+
     },
     updateUser: async (_: any, { id, data }: any) => await UserService.findByIdAndUpdate(id, data),
     deleteUser: async (_: any, { id }: any) => !!(await UserService.deleteById(id)),
