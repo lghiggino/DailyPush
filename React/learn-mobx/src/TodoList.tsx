@@ -16,7 +16,7 @@ export const TodoList = observer(({ store }: any) => {
             {store.pendingRequests > 0 ? <p>Loading...</p> : null}
             <button onClick={onNewTodo}>New Todo</button>
             <small> (double-click a todo to edit)</small>
-            <RenderCounter />
+            {/* <RenderCounter /> */}
         </div>
     );
 })

@@ -43,5 +43,3 @@ export class ObservableTodoStore {
         });
     }
 }
-
-// const observableTodoStore = new ObservableTodoStore();
