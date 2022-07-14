@@ -1,11 +1,13 @@
-import { autorun, makeObservable, observable } from "mobx"
+import { action, autorun, makeObservable, observable } from "mobx"
 
 export class CounterStore {
     count: number = 0
 
     constructor() {
         makeObservable(this, {
-            count: observable
+            count: observable,
+            handleIncrement: action,
+            handleDecrement: action
         })
         autorun(() => console.log(this.count))
     }

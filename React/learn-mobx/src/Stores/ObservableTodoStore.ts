@@ -1,6 +1,7 @@
 import { action, autorun, computed, makeObservable, observable, toJS } from 'mobx';
 
 interface Todos {
+    id: string
     task: string
     completed: boolean
     assignee?: string
@@ -37,9 +38,12 @@ export class ObservableTodoStore {
 
     addTodo(task: string) {
         this.todos.push({
+            id: crypto.randomUUID(),
             task: task,
             completed: false,
             assignee: undefined
         });
     }
 }
+
+//https://mobx.js.org/the-gist-of-mobx.html
