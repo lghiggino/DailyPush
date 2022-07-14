@@ -14,14 +14,11 @@ export const SmartTodo = () => {
 
     return (
         <Observer>
-            {
-                () => (
-                    <h3 onClick={todo.toggle}>
-                        {todo.title} {todo.emoji}
-                    </h3>
-                )
-            }
-
+            {() => (
+                <h3 onClick={todo.toggle}>
+                    {todo.title} {todo.emoji}
+                </h3>
+            )}
         </Observer>
     )
 }

@@ -17,8 +17,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    {/* <App counterStore={counterStore}/>
-    <TodoList store={observableTodoStore} /> */}
+    <App counterStore={counterStore}/>
+    <TodoList store={observableTodoStore} />
     <SmartTodo />
   </React.StrictMode>
 );
