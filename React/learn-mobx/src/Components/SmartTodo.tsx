@@ -1,7 +1,7 @@
-import { useLocalStore, useObserver } from "mobx-react-lite";
+import { Observer, useLocalObservable, useObserver } from "mobx-react-lite";
 
 export const SmartTodo = () => {
-    const todo = useLocalStore(() => ({
+    const todo = useLocalObservable(() => ({
         title: 'Click to toggle',
         done: false,
         toggle() {
@@ -12,9 +12,16 @@ export const SmartTodo = () => {
         },
     }))
 
-    return useObserver(() => (
-        <h3 onClick={todo.toggle}>
-            {todo.title} {todo.emoji}
-        </h3>
-    ))
+    return (
+        <Observer>
+            {
+                () => (
+                    <h3 onClick={todo.toggle}>
+                        {todo.title} {todo.emoji}
+                    </h3>
+                )
+            }
+
+        </Observer>
+    )
 }
