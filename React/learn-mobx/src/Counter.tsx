@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite';
 
-const App = observer(({ counterStore }: any) => {
+const Counter = observer(({ counterStore }: any) => {
   return (
     <div style={{
       marginBottom: '10px',
@@ -21,4 +21,4 @@ const App = observer(({ counterStore }: any) => {
   );
 })
 
-export default App;
+export default Counter;

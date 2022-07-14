@@ -19,4 +19,17 @@ export class CounterStore {
     handleDecrement = () => {
         return this.count--
     }
+    // @observable
+    // count: number = 0
+
+    // @action
+    // handleIncrement = () => {
+    //     console.log("chamou aqui", this.count)
+    //     return this.count++
+    // }
+
+    // @action
+    // handleDecrement = () => {
+    //     return this.count--
+    // }
 }

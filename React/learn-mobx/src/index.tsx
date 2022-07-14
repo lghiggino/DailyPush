@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import Counter from './Counter';
 import { TodoList } from './TodoList'
 import { ObservableTodoStore } from './Stores/ObservableTodoStore'
 import { CounterStore } from './Stores/CounterStore';
@@ -17,7 +17,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <App counterStore={counterStore}/>
+    <Counter counterStore={counterStore}/>
     <TodoList store={observableTodoStore} />
     <SmartTodo />
   </React.StrictMode>
