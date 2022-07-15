@@ -1,6 +1,8 @@
-import { observer } from 'mobx-react-lite';
+import { inject } from 'mobx-react';
+import { observer } from 'mobx-react-lite'
 
-const Counter = observer(({ counterStore }: any) => {
+const Counter = ({ counterStore }: any) => {
+
   return (
     <div style={{
       marginBottom: '10px',
@@ -19,6 +21,6 @@ const Counter = observer(({ counterStore }: any) => {
       </button>
     </div>
   );
-})
+}
 
-export default Counter;
+export default inject('counterStore')(observer(Counter));

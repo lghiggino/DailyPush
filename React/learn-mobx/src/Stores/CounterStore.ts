@@ -1,4 +1,4 @@
-import { action, autorun, makeObservable, observable } from "mobx"
+import { action, makeObservable, observable } from "mobx"
 
 export class CounterStore {
     count: number = 0
@@ -8,8 +8,7 @@ export class CounterStore {
             count: observable,
             handleIncrement: action,
             handleDecrement: action
-        })
-        autorun(() => console.log(this.count))
+        });
     }
 
     handleIncrement = () => {
@@ -19,6 +18,13 @@ export class CounterStore {
     handleDecrement = () => {
         return this.count--
     }
+
+    // rootStore: RootStore;
+
+    // constructor(rootStore: RootStore) {
+    //     this.rootStore = rootStore;
+    // }
+
     // @observable
     // count: number = 0
 

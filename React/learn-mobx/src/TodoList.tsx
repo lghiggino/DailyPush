@@ -1,25 +1,26 @@
+import { inject } from 'mobx-react';
 import { observer } from 'mobx-react-lite'
 
-export const TodoList = observer(({ store }: any) => {
+const TodoList = ({ observableTodoStore }: any) => {
     const onNewTodo = () => {
-        store.addTodo(prompt('Enter a new todo:', 'coffee plz'));
+        observableTodoStore.addTodo(prompt('Enter a new todo:', 'coffee plz'));
     }
 
     return (
         <div>
-            {store.report}
+            {observableTodoStore.report}
             <ul>
-                {store.todos.map(
+                {observableTodoStore.todos.map(
                     (todo: any, idx: any) => <TodoView todo={todo} key={idx} />
                 )}
             </ul>
-            {store.pendingRequests > 0 ? <p>Loading...</p> : null}
+            {observableTodoStore.pendingRequests > 0 ? <p>Loading...</p> : null}
             <button onClick={onNewTodo}>New Todo</button>
             <small> (double-click a todo to edit)</small>
             {/* <RenderCounter /> */}
         </div>
     );
-})
+}
 
 const TodoView = observer(({ todo }: any) => {
     const onToggleCompleted = () => {
@@ -46,3 +47,5 @@ const TodoView = observer(({ todo }: any) => {
         </li>
     );
 })
+
+export default inject('observableTodoStore')(observer(TodoList));

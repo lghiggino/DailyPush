@@ -1,24 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import { Provider } from 'mobx-react';
+import { store, CounterStore, ObservableTodoStore } from './Stores';
+
 import Counter from './Counter';
-import { TodoList } from './TodoList'
-import { ObservableTodoStore } from './Stores/ObservableTodoStore'
-import { CounterStore } from './Stores/CounterStore';
+import TodoList from './TodoList'
+
 import { SmartTodo } from './Components/SmartTodo';
 
-if (!new class { x:any }().hasOwnProperty('x')) throw new Error('Transpiler is not configured correctly');
+if (!new class { x: any }().hasOwnProperty('x')) throw new Error('Transpiler is not configured correctly');
 
-const observableTodoStore = new ObservableTodoStore();
-const counterStore = new CounterStore();
+// const observableTodoStore = new ObservableTodoStore();
+// const counterStore = new CounterStore();
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <Counter counterStore={counterStore}/>
-    <TodoList store={observableTodoStore} />
-    <SmartTodo />
-  </React.StrictMode>
+    <Provider {...store}>
+      <Counter />
+      <TodoList />
+      <SmartTodo />
+    </Provider >
+  </React.StrictMode >
 );
