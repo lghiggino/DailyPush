@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'mobx-react';
-import { store, CounterStore, ObservableTodoStore } from './Stores';
+import { store } from './Stores';
 
-import Counter from './Counter';
+import Counter from './Components/Counter';
 import TodoList from './TodoList'
 
 import { SmartTodo } from './Components/SmartTodo';
