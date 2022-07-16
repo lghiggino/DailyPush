@@ -4,9 +4,10 @@ import { Provider } from 'mobx-react';
 import { store } from './Stores';
 
 import Counter from './Components/Counter';
-import TodoList from './TodoList'
+import TodoList from './Components/TodoList'
 
 import { SmartTodo } from './Components/SmartTodo';
+import Pokemon from './Components/Pokemon';
 
 if (!new class { x: any }().hasOwnProperty('x')) throw new Error('Transpiler is not configured correctly');
 
@@ -21,6 +22,7 @@ root.render(
     <Provider {...store}>
       <Counter />
       <TodoList />
+      <Pokemon />
       <SmartTodo />
     </Provider >
   </React.StrictMode >
