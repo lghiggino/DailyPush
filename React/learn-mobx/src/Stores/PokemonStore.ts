@@ -1,5 +1,5 @@
 import axios from "axios";
-import { action, makeObservable, observable } from "mobx"
+import { action, makeObservable, observable, runInAction } from "mobx"
 
 export class PokemonStore {
     pikachu: any = {}
@@ -16,21 +16,29 @@ export class PokemonStore {
 
     handleGetPikachu = async () => {
         try {
-            const {data} = await axios.get('https://pokeapi.co/api/v2/pokemon/pikachu')
-            return this.pikachu = data
+            const { data } = await axios.get('https://pokeapi.co/api/v2/pokemon/pikachu')
+            runInAction(() => {
+                return this.pikachu = data
+            })
         } catch (error) {
-            return this.pikachu = {undefined}
+            runInAction(() => {
+                return this.pikachu = { undefined }
+            })
         }
     }
 
     handleGetPokemon = async (poke: string) => {
         console.log('entrou aqui')
         try {
-            const {data} = await axios.get(`https://pokeapi.co/api/v2/pokemon/${poke}`)
-            console.log(data, typeof data)
-            return this.anypokemon = data
+            const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${poke}`)
+            runInAction(() => {
+                return this.anypokemon = data
+            })
         } catch (error) {
-            return this.anypokemon = {undefined}
+            runInAction(() => {
+                return this.anypokemon = { undefined }
+            })
+
         }
     }
 }

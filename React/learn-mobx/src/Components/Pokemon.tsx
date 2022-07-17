@@ -22,7 +22,7 @@ const Pokemon = ({ pokemonStore }: any) => {
             <div>
                 <div>
                     {pokemonStore.anypokemon && JSON.stringify(pokemonStore.anypokemon, null, 4)}
-                    {console.log(pokemonStore.anypokemon)}
+                    {console.log("pokemonStore.anypokemon", pokemonStore.anypokemon)}
                 </div>
                 <input type='text' placeholder='type a pokemon name' onChange={(ev) => { setPoke(ev.target.value) }} />
                 <button
