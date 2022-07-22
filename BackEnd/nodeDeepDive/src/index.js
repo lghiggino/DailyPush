@@ -2,8 +2,9 @@ const express = require('express')
 
 const app = express()
 
-app.get('/', (req, res) => {
-    console.log('bateu em /')
+app.get('/courses/:id', (req, res) => {
+    const { id } = req.params
+    console.log(`bateu em /courses/${id}`)
     res.send('apple').status(200)
 })
 
