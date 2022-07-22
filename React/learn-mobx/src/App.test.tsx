@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Counter from './Counter';
+import Counter from './Components/Counter';
 
 test('renders learn react link', () => {
   render(<Counter />);

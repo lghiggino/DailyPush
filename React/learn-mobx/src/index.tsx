@@ -27,3 +27,5 @@ root.render(
     </Provider >
   </React.StrictMode >
 );
+
+//https://mono.software/2019/04/16/async-webapi-calls-using-react-with-mobx/
