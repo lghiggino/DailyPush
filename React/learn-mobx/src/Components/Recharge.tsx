@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 const Recharge = ({ rechargeStore }: any) => {
     const [poke, setPoke] = useState('')
+    const [phone, setPhone] = useState('')
 
     return (
         <div style={{
@@ -20,15 +21,12 @@ const Recharge = ({ rechargeStore }: any) => {
                 </button>
             </div>
             <div>
-                <div>
-                    {rechargeStore.anypokemon && JSON.stringify(rechargeStore.anypokemon, null, 4)}
-                    {console.log("rechargeStore.anypokemon", rechargeStore.anypokemon)}
-                </div>
-                <input type='text' placeholder='type a pokemon name' onChange={(ev) => { setPoke(ev.target.value) }} />
+                <input type='number' placeholder='type your phone number with ddd' onChange={(ev) => { setPhone(ev.target.value) }} />
                 <button
-                    onClick={() => { rechargeStore.handleGetPokemon(poke) }}>
-                    {`Get ${poke} data`}
+                    onClick={() => { rechargeStore.handleGetSplitPhoneNumber(phone) }}>
+                    Enviar
                 </button>
+                
             </div>
 
         </div>
