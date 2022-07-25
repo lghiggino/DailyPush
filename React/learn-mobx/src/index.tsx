@@ -8,6 +8,7 @@ import TodoList from './Components/TodoList'
 
 import { SmartTodo } from './Components/SmartTodo';
 import Pokemon from './Components/Pokemon';
+import Recharge from './Components/Recharge';
 
 if (!new class { x: any }().hasOwnProperty('x')) throw new Error('Transpiler is not configured correctly');
 
@@ -24,6 +25,7 @@ root.render(
       <TodoList />
       <Pokemon />
       <SmartTodo />
+      <Recharge />
     </Provider >
   </React.StrictMode >
 );

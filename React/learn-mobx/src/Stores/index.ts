@@ -2,16 +2,19 @@ import { create } from 'mobx-persist';
 import { CounterStore } from './CounterStore';
 import { ObservableTodoStore } from './ObservableTodoStore';
 import { PokemonStore } from './PokemonStore';
+import { RechargeStore } from './RechargeStore';
 
 class RootStore {
     counterStore: CounterStore;
     observableTodoStore: ObservableTodoStore;
-    pokemonStore: PokemonStore
+    pokemonStore: PokemonStore;
+    rechargeStore: RechargeStore;
 
     constructor() {
         this.counterStore = new CounterStore()
         this.observableTodoStore = new ObservableTodoStore()
         this.pokemonStore = new PokemonStore()
+        this.rechargeStore = new RechargeStore()
     }
 }
 
@@ -30,10 +33,15 @@ hydrate('pokemonStore', store.pokemonStore)
     .then(() => console.log('pokemonStore has been hydrated'))
     .catch((error) => console.log(error))
 
+hydrate('rechargeStore', store.rechargeStore)
+    .then(() => console.log('rechargeStore has been hydrated'))
+    .catch((error) => console.log(error))
+
 export {
     store,
     RootStore,
     CounterStore,
     ObservableTodoStore,
-    PokemonStore
+    PokemonStore,
+    RechargeStore
 }
