@@ -13,11 +13,15 @@ const Recharge = ({ rechargeStore }: any) => {
         }}>
             <div>
                 <div>
-                    {rechargeStore.pikachu && JSON.stringify(rechargeStore.pikachu, null, 4)}
+                    <>
+                        <p>{rechargeStore.ddd && rechargeStore.ddd}</p>
+                        <p>{rechargeStore.phone && rechargeStore.phone}</p>
+                        <p>{rechargeStore.provider && rechargeStore.provider}</p>
+                    </>
                 </div>
                 <button
-                    onClick={rechargeStore.handleGetPikachu}>
-                    Get Pikachu
+                    onClick={rechargeStore.handleApiCallLogin}>
+                    check console
                 </button>
             </div>
             <div>
@@ -26,7 +30,6 @@ const Recharge = ({ rechargeStore }: any) => {
                     onClick={() => { rechargeStore.handleGetSplitPhoneNumber(phone) }}>
                     Enviar
                 </button>
-                
             </div>
 
         </div>

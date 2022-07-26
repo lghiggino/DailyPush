@@ -21,20 +21,40 @@ export class RechargeStore {
     }
 
     handleGetSplitPhoneNumber = (phoneNumber: string) => {
-        if(phoneNumber.length < 11){
+        if (phoneNumber.length !== 11) {
             alert('invalid phone number')
         }
-        else{
-            this.ddd = phoneNumber.slice(0,2)
+        else {
+            this.ddd = phoneNumber.slice(0, 2)
             this.phone = phoneNumber.slice(2)
             alert(`${this.ddd} + ${this.phone}`)
         }
     }
 
+    handleApiCallLogin = async () => {
+        const username = process.env.RV_USERNAME
+        const password = process.env.RV_PASSWORD
+
+        console.log(username, password)
+        try {
+            const { data } = await axios.post('https://auth.sbx.rvhub.com.br/oauth2/token?grant_type=client_credentials', {}, {
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Authorization': 'Basic N2Y2bWFsdjBnY2NtNXJvdm1wYWp2YXBoaTY6cTJqMXZjY245MXFxcHY0MDNpamMwMmFtYW8ybmZwaXY1ZHBjZzFyaDFlbDhtYzIzYnFu'
+                }
+            })
+
+            console.log(data)
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+
     handleGetProviderName = (providerName: string) => {
         //precisa checar a validade do providerName se ele vem de um front controlado?
         this.provider = providerName
-        if((this.ddd !== undefined) && (this.provider !== undefined)){
+        if ((this.ddd !== undefined) && (this.provider !== undefined)) {
             this.handleGetProviderOptionsList(this.ddd, this.provider)
         }
     }
