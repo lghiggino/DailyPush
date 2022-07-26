@@ -5,6 +5,8 @@ import { useState } from 'react';
 const Recharge = ({ rechargeStore }: any) => {
     const [poke, setPoke] = useState('')
     const [phone, setPhone] = useState('')
+    const [provider, setProvider] = useState('')
+    const [disabled, setDisabled] = useState(true)
 
     return (
         <div style={{
@@ -19,16 +21,27 @@ const Recharge = ({ rechargeStore }: any) => {
                         <p>{rechargeStore.provider && rechargeStore.provider}</p>
                     </>
                 </div>
-                <button
-                    onClick={rechargeStore.handleApiCallLogin}>
-                    check console
-                </button>
             </div>
             <div>
                 <input type='number' placeholder='type your phone number with ddd' onChange={(ev) => { setPhone(ev.target.value) }} />
+                <input type='text' placeholder='type your providername' onChange={(ev) => { setProvider(ev.target.value) }} />
+
                 <button
-                    onClick={() => { rechargeStore.handleGetSplitPhoneNumber(phone) }}>
+                    onClick={() => {
+                        if (rechargeStore.handleGetSplitPhoneNumber(phone) === 'invalid' || rechargeStore.handleSetProviderName(provider) === 'invalid') {
+                            setDisabled(true)
+                        } else {
+                            setDisabled(false)
+                        }
+
+                    }}>
                     Enviar
+                </button>
+                <button
+                    onClick={rechargeStore.handleApiCallGetProductByProviderNameAndAreaCode}
+                    disabled={disabled}
+                >
+                    check console to see providerList
                 </button>
             </div>
 

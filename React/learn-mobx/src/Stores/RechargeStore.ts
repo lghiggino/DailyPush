@@ -22,12 +22,20 @@ export class RechargeStore {
 
     handleGetSplitPhoneNumber = (phoneNumber: string) => {
         if (phoneNumber.length !== 11) {
-            alert('invalid phone number')
+            return('invalid')
         }
         else {
             this.ddd = phoneNumber.slice(0, 2)
             this.phone = phoneNumber.slice(2)
             alert(`${this.ddd} + ${this.phone}`)
+        }
+    }
+
+    handleSetProviderName = (providerName: string) =>{
+        const providers = ['vivo', 'tim', 'oi', 'claro', 'nextel']
+        if (!providers.includes(providerName)){
+            alert('invalid provider name')
+            return('invalid')
         }
     }
 
@@ -37,18 +45,43 @@ export class RechargeStore {
 
         console.log(username, password)
         try {
-            const { data } = await axios.post('https://auth.sbx.rvhub.com.br/oauth2/token?grant_type=client_credentials', {}, {
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'Authorization': 'Basic N2Y2bWFsdjBnY2NtNXJvdm1wYWp2YXBoaTY6cTJqMXZjY245MXFxcHY0MDNpamMwMmFtYW8ybmZwaXY1ZHBjZzFyaDFlbDhtYzIzYnFu'
+            const { data } = await axios.post('https://auth.sbx.rvhub.com.br/oauth2/token?grant_type=client_credentials',
+                {},
+                {
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'Authorization': 'Basic N2Y2bWFsdjBnY2NtNXJvdm1wYWp2YXBoaTY6cTJqMXZjY245MXFxcHY0MDNpamMwMmFtYW8ybmZwaXY1ZHBjZzFyaDFlbDhtYzIzYnFu'
+                    }
                 }
-            })
+            )
 
             console.log(data)
+            const token: string = data.access_token
+            return token
         } catch (error) {
             console.log(error)
         }
+    }
 
+    handleApiCallGetProductByProviderNameAndAreaCode = async () => {
+        console.log('entrou aqui')
+        const token = await this.handleApiCallLogin()
+        const ddd = this.ddd
+        const provider = 'vivo'
+
+        if (!token) {
+            return 'unable to login'
+        }
+        try {
+            const { data } = await axios.post(`https://api.sbx.rvhub.com.br/portfolio/?kinds=cellphone&provider=${provider}&area_code=${ddd}`,
+                {},
+                { headers: { 'Authorization': `Bearer ${token}` } }
+            )
+            console.log(data)
+
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     handleGetProviderName = (providerName: string) => {
