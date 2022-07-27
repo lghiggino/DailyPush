@@ -21,9 +21,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Provider {...store}>
-      <Counter />
+      {/* <Counter />
       <TodoList />
-      <Pokemon />
+      <Pokemon /> */}
       <SmartTodo />
       <Recharge />
     </Provider >
