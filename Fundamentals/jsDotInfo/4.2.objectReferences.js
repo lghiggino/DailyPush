@@ -1,16 +1,22 @@
-let user = {
-  name: "John",
-  sizes: {
-    height: 182,
-    width: 50
-  }
-};
+// let user = {
+//   name: "John",
+//   sizes: {
+//     height: 182,
+//     width: 50,
+//   },
+// };
 
-let clone = structuredClone(user);
+// let clone = structuredClone(user);
 
-console.log(user.sizes === clone.sizes)
+// console.log(user.sizes === clone.sizes);
 
-user.sizes.width = 60;
+// user.sizes.width = 60;
 
-console.log(user.sizes)
-console.log(clone.sizes)
+// console.log(user.sizes);
+// console.log(clone.sizes);
+
+function strClone(obj) {
+  return structuredClone(obj);
+}
+
+module.exports = { strClone };
